@@ -1,0 +1,32 @@
+-rwxr-x--x  1 root root  245 Sep 27 02:31 keepalived_notify_ADGUARDv4.sh
+#!/bin/bash
+
+#Write status to temporaray file.
+touch /var/run/keepalived_status_ADGUARDv4
+chmod 0644 /var/run/keepalived_status_ADGUARDv4
+echo "$1 $2 has transitioned to the $3 state with a priority of $4" > /var/run/keepalived_status_ADGUARDv4
+
+-rwxr-x--x  1 root root  245 Sep 27 02:45 keepalived_notify_ADGUARDv6.sh
+#!/bin/bash
+
+#Write status to temporaray file.
+touch /var/run/keepalived_status_ADGUARDv6
+chmod 0644 /var/run/keepalived_status_ADGUARDv6
+echo "$1 $2 has transitioned to the $3 state with a priority of $4" > /var/run/keepalived_status_ADGUARDv6
+
+-rwxr-x--x  1 root root  233 Sep 27 02:13 keepalived_notify_NPMv4.sh
+#!/bin/bash
+
+#Write status to temporaray file.
+touch /var/run/keepalived_status_NPMv4
+chmod 0644 /var/run/keepalived_status_NPMv4
+echo "$1 $2 has transitioned to the $3 state with a priority of $4" > /var/run/keepalived_status_NPMv4
+
+-rwxr-x--x  1 root root  233 Sep 27 02:13 keepalived_notify_NPMv6.sh
+#!/bin/bash
+
+#Write status to temporaray file.
+touch /var/run/keepalived_status_NPMv6
+chmod 0644 /var/run/keepalived_status_NPMv6
+echo "$1 $2 has transitioned to the $3 state with a priority of $4" > /var/run/keepalived_status_NPMv6
+#!/bin/bash
