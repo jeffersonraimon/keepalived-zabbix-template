@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>7.0</version>
+    <template_groups>
+        <template_group>
+            <uuid>7df96b18c230490a9a0a9e2307226338</uuid>
+            <name>Templates</name>
+        </template_group>
+    </template_groups>
+    <templates>
+        <template>
+            <uuid>2a019148fec44446a78955510d1d9ecf</uuid>
+            <template>Template App Keepalived Instances</template>
+            <name>Template App Keepalived Instances</name>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <uuid>1e456bd065cd463cb66f10810a2994a5</uuid>
+                    <name>Keepalived: process count</name>
+                    <key>proc.num[keepalived]</key>
+                    <delay>2m</delay>
+                    <history>90d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Keepalived</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>2d3f3049db9f413ab6f865835c86e9d2</uuid>
+                    <name>Keepalived ADGUARDv4: is BACKUP</name>
+                    <key>vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv4,^.*(BACKUP)]</key>
+                    <delay>2m</delay>
+                    <history>90d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Keepalived</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>dce9793a5a2d40ecb4d44def82f6d4ce</uuid>
+                    <name>Keepalived ADGUARDv4: is MASTER</name>
+                    <key>vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv4,^.*(MASTER)]</key>
+                    <delay>2m</delay>
+                    <history>90d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Keepalived</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>a95ae12028ca48e2a8a7d6b2c6885e98</uuid>
+                            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv4,^.*(MASTER)],#2)=0 and last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv4,^.*(MASTER)])=1</expression>
+                            <name>Keepalived ADGUARDv4: state change from BACKUP to MASTER</name>
+                            <priority>AVERAGE</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                        <trigger>
+                            <uuid>164f66db4c204803ab9cdaa119a7507f</uuid>
+                            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv4,^.*(MASTER)],#2)=1 and last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv4,^.*(MASTER)])=0</expression>
+                            <name>Keepalived ADGUARDv4: state change from MASTER to BACKUP</name>
+                            <priority>AVERAGE</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>d6cc41bb2243465da9942c8dad78de1e</uuid>
+                    <name>Keepalived ADGUARDv6: is BACKUP</name>
+                    <key>vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv6,^.*(BACKUP)]</key>
+                    <delay>2m</delay>
+                    <history>90d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Keepalived</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>08df6d4152e24e65a40e874c649a6fd1</uuid>
+                    <name>Keepalived ADGUARDv6: is MASTER</name>
+                    <key>vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv6,^.*(MASTER)]</key>
+                    <delay>2m</delay>
+                    <history>90d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Keepalived</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>31c71e53e3eb4a1a8dee04e6837042d7</uuid>
+                            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv6,^.*(MASTER)],#2)=0 and last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv6,^.*(MASTER)])=1</expression>
+                            <name>Keepalived ADGUARDv6: state change from BACKUP to MASTER</name>
+                            <priority>AVERAGE</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                        <trigger>
+                            <uuid>6dc1bdf6e1534773a90565952de0a99d</uuid>
+                            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv6,^.*(MASTER)],#2)=1 and last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv6,^.*(MASTER)])=0</expression>
+                            <name>Keepalived ADGUARDv6: state change from MASTER to BACKUP</name>
+                            <priority>AVERAGE</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>5101289c51704d68985e7373413f8a48</uuid>
+                    <name>Keepalived NPMv4: is BACKUP</name>
+                    <key>vfs.file.regmatch[/var/run/keepalived_status_NPMv4,^.*(BACKUP)]</key>
+                    <delay>2m</delay>
+                    <history>90d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Keepalived</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>613fa1dbeb7942f9aa517bce36847eba</uuid>
+                    <name>Keepalived NPMv4: is MASTER</name>
+                    <key>vfs.file.regmatch[/var/run/keepalived_status_NPMv4,^.*(MASTER)]</key>
+                    <delay>2m</delay>
+                    <history>90d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Keepalived</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>06b1ee6b9e1a47bda8bb0b2da0ca59d5</uuid>
+                            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_NPMv4,^.*(MASTER)],#2)=0 and last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_NPMv4,^.*(MASTER)])=1</expression>
+                            <name>Keepalived NPMv4: state change from BACKUP to MASTER</name>
+                            <priority>AVERAGE</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                        <trigger>
+                            <uuid>f84da23b2ac5490ba400780982a7fb97</uuid>
+                            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_NPMv4,^.*(MASTER)],#2)=1 and last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_NPMv4,^.*(MASTER)])=0</expression>
+                            <name>Keepalived NPMv4: state change from MASTER to BACKUP</name>
+                            <priority>AVERAGE</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>f3efd43d54b644b5b4c80655b024a112</uuid>
+                    <name>Keepalived NPMv6: is BACKUP</name>
+                    <key>vfs.file.regmatch[/var/run/keepalived_status_NPMv6,^.*(BACKUP)]</key>
+                    <delay>2m</delay>
+                    <history>90d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Keepalived</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>2e7f4886148645718ac8a2c23fc82fdb</uuid>
+                    <name>Keepalived NPMv6: is MASTER</name>
+                    <key>vfs.file.regmatch[/var/run/keepalived_status_NPMv6,^.*(MASTER)]</key>
+                    <delay>2m</delay>
+                    <history>90d</history>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Keepalived</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>223671061c8b449cb53a03d21f39b99c</uuid>
+                            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_NPMv6,^.*(MASTER)],#2)=0 and last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_NPMv6,^.*(MASTER)])=1</expression>
+                            <name>Keepalived NPMv6: state change from BACKUP to MASTER</name>
+                            <priority>AVERAGE</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                        <trigger>
+                            <uuid>17281474e9ef4a47bf10e29f3b3d9d76</uuid>
+                            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_NPMv6,^.*(MASTER)],#2)=1 and last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_NPMv6,^.*(MASTER)])=0</expression>
+                            <name>Keepalived NPMv6: state change from MASTER to BACKUP</name>
+                            <priority>AVERAGE</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+            </items>
+        </template>
+    </templates>
+    <triggers>
+        <trigger>
+            <uuid>d43eb185ac1341f5918bcc71ea97ecb5</uuid>
+            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv4,^.*(MASTER)])=0 and last(/Template App Keepalived Instances/proc.num[keepalived])&lt;2</expression>
+            <name>Keepalived ADGUARDv4: state is BACKUP but it's stopped</name>
+            <priority>HIGH</priority>
+            <manual_close>YES</manual_close>
+        </trigger>
+        <trigger>
+            <uuid>73e17a70163f4edfb47ea8c379e59af1</uuid>
+            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv4,^.*(MASTER)])=1 and last(/Template App Keepalived Instances/proc.num[keepalived])&lt;2</expression>
+            <name>Keepalived ADGUARDv4: state is MASTER but it's stopped</name>
+            <priority>DISASTER</priority>
+            <manual_close>YES</manual_close>
+        </trigger>
+        <trigger>
+            <uuid>2494dbcf8a864522a9dd7a11cd526474</uuid>
+            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv6,^.*(MASTER)])=0 and last(/Template App Keepalived Instances/proc.num[keepalived])&lt;2</expression>
+            <name>Keepalived ADGUARDv6: state is BACKUP but it's stopped</name>
+            <priority>HIGH</priority>
+            <manual_close>YES</manual_close>
+        </trigger>
+        <trigger>
+            <uuid>8481f6064e8942aeb66ff0fab3e0406f</uuid>
+            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_ADGUARDv6,^.*(MASTER)])=1 and last(/Template App Keepalived Instances/proc.num[keepalived])&lt;2</expression>
+            <name>Keepalived ADGUARDv6: state is MASTER but it's stopped</name>
+            <priority>DISASTER</priority>
+            <manual_close>YES</manual_close>
+        </trigger>
+        <trigger>
+            <uuid>ec55655c25ec4c449ff0c0e0294ac8a2</uuid>
+            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_NPMv4,^.*(MASTER)])=0 and last(/Template App Keepalived Instances/proc.num[keepalived])&lt;2</expression>
+            <name>Keepalived NPMv4: state is BACKUP but it's stopped</name>
+            <priority>HIGH</priority>
+            <manual_close>YES</manual_close>
+        </trigger>
+        <trigger>
+            <uuid>6059cb1fd1b443a28bc21a8746c84bec</uuid>
+            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_NPMv4,^.*(MASTER)])=1 and last(/Template App Keepalived Instances/proc.num[keepalived])&lt;2</expression>
+            <name>Keepalived NPMv4: state is MASTER but it's stopped</name>
+            <priority>DISASTER</priority>
+            <manual_close>YES</manual_close>
+        </trigger>
+        <trigger>
+            <uuid>6e1706d1fc2b46e0ae6e2d73e3ef10c9</uuid>
+            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_NPMv6,^.*(MASTER)])=0 and last(/Template App Keepalived Instances/proc.num[keepalived])&lt;2</expression>
+            <name>Keepalived NPMv6: state is BACKUP but it's stopped</name>
+            <priority>HIGH</priority>
+            <manual_close>YES</manual_close>
+        </trigger>
+        <trigger>
+            <uuid>4952aa2d50d34626b6806608b12d4a79</uuid>
+            <expression>last(/Template App Keepalived Instances/vfs.file.regmatch[/var/run/keepalived_status_NPMv6,^.*(MASTER)])=1 and last(/Template App Keepalived Instances/proc.num[keepalived])&lt;2</expression>
+            <name>Keepalived NPMv6: state is MASTER but it's stopped</name>
+            <priority>DISASTER</priority>
+            <manual_close>YES</manual_close>
+        </trigger>
+    </triggers>
+</zabbix_export>
